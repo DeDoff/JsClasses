@@ -1,0 +1,4 @@
+(function Min(){
+
+    //alert('hi');
+})()
