@@ -1,23 +1,33 @@
 .main-container{
     border: 1px solid green;
-    padding: 20px;
-
+    
     overflow-x: hidden;
     overflow-y: hidden;
-    width: 300px;
+    width: 900px;
+    height: 200px;
+    
+    
+    white-space: nowrap;
+}
+
+.main-container fragment {
+    width:300px;
     height: 200px;
 }
 
-.main-slide{
-    display: inline;
-}
 .slide{
-    display: inline;
-    
+    display: inline-block;
+    width:300px;
+    height: 200px;
+    /* margin-left: -300px; */
 }
 
 .slide--img{
     width:300px;
     height: 200px;
     border: 2px solid black;
+}
+
+.buttons{
+    display: inline;
 }
