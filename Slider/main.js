@@ -107,30 +107,35 @@ function createSlide(slideId){
 
     let container = document.querySelector('.main-container'); 
 
-    Counter.set(0); 
-    container.appendChild(createSlide(Counter.getCurrent())); 
+    Counter.set(-1); 
+    let first = createSlide(Counter.getCurrent());
+    first.querySelector('.slide').classList.add('slide-left');
+    container.appendChild(first); 
     Counter.add(); 
     container.appendChild(createSlide(Counter.getCurrent())); 
     Counter.add(); 
     container.appendChild(createSlide(Counter.getCurrent())); 
     Counter.add(); 
     container.appendChild(createSlide(Counter.getCurrent())); 
-    Counter.add(); 
-    container.appendChild(createSlide(Counter.getCurrent())); 
+    // Counter.add(); 
+    // container.appendChild(createSlide(Counter.getCurrent())); 
     
 
     //toLeft 
     var btnl = document.getElementById("btnLeft"); 
     btnl.addEventListener('click', (e)=>{ 
         Counter.minus(); 
-        var slideId = Counter.getCurrent(); 
+        render(); 
+
+        var slideId = Counter.getCurrent()-2; 
         if(!ifSlideExist(slideId)){ 
             var slide = createSlide(slideId); 
+            slide.querySelector('.slide').classList.add('slide-left');
             var container = document.querySelector('.main-container'); 
+            let oldFirst = container.querySelector('.slide-left');
+            oldFirst.classList. remove('slide-left');
             container.insertBefore(slide, container.firstChild); 
         } 
-        render(); 
-        
     }); 
 
 
@@ -158,10 +163,10 @@ function createSlide(slideId){
 })(); 
 
 document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
-    var el = fragments[3];
+    // var el = fragments[3];
     
-    var slide = el.element.querySelector('.slide'); 
-    slide.scrollIntoView({behavior: "smooth"}); 
+    // var slide = el.element.querySelector('.slide'); 
+    // slide.scrollIntoView({behavior: "smooth"}); 
     
 });
 
